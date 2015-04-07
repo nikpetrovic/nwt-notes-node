@@ -10,11 +10,11 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
-          <label>Name</label>
+          <label>First Name</label>
 
-          <input type="text" name="name" class="form-control" ng-model="user.name"
+          <input type="text" name="firstName" class="form-control" ng-model="user.firstName"
                  required/>
-          <p class="help-block" ng-show="form.name.$error.required && submitted">
+          <p class="help-block" ng-show="form.firstName.$error.required && submitted">
             A name is required
           </p>
         </div>

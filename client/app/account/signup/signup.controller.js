@@ -10,7 +10,7 @@ angular.module('nwtNotesApp')
 
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
+          firstName: $scope.user.firstName,
           email: $scope.user.email,
           password: $scope.user.password
         })
