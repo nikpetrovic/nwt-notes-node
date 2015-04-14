@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nwtNotesApp')
-  .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
+  .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -10,7 +10,7 @@ angular.module('nwtNotesApp')
 
       if(form.$valid) {
         Auth.createUser({
-          firstName: $scope.user.firstName,
+          name: $scope.user.name,
           email: $scope.user.email,
           password: $scope.user.password
         })
@@ -31,7 +31,4 @@ angular.module('nwtNotesApp')
       }
     };
 
-    $scope.loginOauth = function(provider) {
-      $window.location.href = '/auth/' + provider;
-    };
   });

@@ -1,3 +1,5 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -8,11 +10,11 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
-          <label>First Name</label>
+          <label>Name</label>
 
-          <input type="text" name="firstName" class="form-control" ng-model="user.firstName"
+          <input type="text" name="name" class="form-control" ng-model="user.name"
                  required/>
-          <p class="help-block" ng-show="form.firstName.$error.required && submitted">
+          <p class="help-block" ng-show="form.name.$error.required && submitted">
             A name is required
           </p>
         </div>
@@ -61,18 +63,6 @@
           </a>
         </div>
 
-        <hr>
-        <div>
-          <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
-            <i class="fa fa-facebook"></i> Connect with Facebook
-          </a>
-          <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
-            <i class="fa fa-google-plus"></i> Connect with Google+
-          </a>
-          <a class="btn btn-twitter" href="" ng-click="loginOauth('twitter')">
-            <i class="fa fa-twitter"></i> Connect with Twitter
-          </a>
-        </div>
       </form>
     </div>
   </div>

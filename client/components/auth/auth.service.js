@@ -10,14 +10,12 @@ angular.module('nwtNotesApp')
     return {
 
       /**
-		 * Authenticate user and save token
-		 * 
-		 * @param {Object}
-		 *           user - login info
-		 * @param {Function}
-		 *           callback - optional
-		 * @return {Promise}
-		 */
+       * Authenticate user and save token
+       *
+       * @param  {Object}   user     - login info
+       * @param  {Function} callback - optional
+       * @return {Promise}
+       */
       login: function(user, callback) {
         var cb = callback || angular.noop;
         var deferred = $q.defer();
@@ -42,24 +40,22 @@ angular.module('nwtNotesApp')
       },
 
       /**
-		 * Delete access token and user info
-		 * 
-		 * @param {Function}
-		 */
+       * Delete access token and user info
+       *
+       * @param  {Function}
+       */
       logout: function() {
         $cookieStore.remove('token');
         currentUser = {};
       },
 
       /**
-		 * Create a new user
-		 * 
-		 * @param {Object}
-		 *           user - user info
-		 * @param {Function}
-		 *           callback - optional
-		 * @return {Promise}
-		 */
+       * Create a new user
+       *
+       * @param  {Object}   user     - user info
+       * @param  {Function} callback - optional
+       * @return {Promise}
+       */
       createUser: function(user, callback) {
         var cb = callback || angular.noop;
 
@@ -76,16 +72,13 @@ angular.module('nwtNotesApp')
       },
 
       /**
-		 * Change password
-		 * 
-		 * @param {String}
-		 *           oldPassword
-		 * @param {String}
-		 *           newPassword
-		 * @param {Function}
-		 *           callback - optional
-		 * @return {Promise}
-		 */
+       * Change password
+       *
+       * @param  {String}   oldPassword
+       * @param  {String}   newPassword
+       * @param  {Function} callback    - optional
+       * @return {Promise}
+       */
       changePassword: function(oldPassword, newPassword, callback) {
         var cb = callback || angular.noop;
 
@@ -100,26 +93,26 @@ angular.module('nwtNotesApp')
       },
 
       /**
-		 * Gets all available info on authenticated user
-		 * 
-		 * @return {Object} user
-		 */
+       * Gets all available info on authenticated user
+       *
+       * @return {Object} user
+       */
       getCurrentUser: function() {
         return currentUser;
       },
 
       /**
-		 * Check if a user is logged in
-		 * 
-		 * @return {Boolean}
-		 */
+       * Check if a user is logged in
+       *
+       * @return {Boolean}
+       */
       isLoggedIn: function() {
         return currentUser.hasOwnProperty('role');
       },
 
       /**
-		 * Waits for currentUser to resolve before checking if user is logged in
-		 */
+       * Waits for currentUser to resolve before checking if user is logged in
+       */
       isLoggedInAsync: function(cb) {
         if(currentUser.hasOwnProperty('$promise')) {
           currentUser.$promise.then(function() {
@@ -135,17 +128,17 @@ angular.module('nwtNotesApp')
       },
 
       /**
-		 * Check if a user is an admin
-		 * 
-		 * @return {Boolean}
-		 */
+       * Check if a user is an admin
+       *
+       * @return {Boolean}
+       */
       isAdmin: function() {
         return currentUser.role === 'admin';
       },
 
       /**
-		 * Get auth token
-		 */
+       * Get auth token
+       */
       getToken: function() {
         return $cookieStore.get('token');
       }
