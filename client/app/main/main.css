@@ -35,7 +35,101 @@
 	margin: 1px;
 }
 
+.bBook-button {
+	font-size: 85%;
+	width: 49%;
+	margin: 1px;
+}
+
 .header {
 	margin: 4em 0.4em;
-    text-align: left;
+	text-align: left;
+}
+
+.fade.ng-enter {
+	-webkit-animation: fadeIn 400ms;
+	-moz-animation: fadeIn 400ms;
+	-o-animation: fadeIn 400ms;
+	animation: fadeIn 400ms;
+}
+
+.fade.ng-leave {
+	-webkit-animation: fadeOut 400ms;
+	-moz-animation: fadeOut 400ms;
+	-o-animation: fadeOut 400ms;
+	animation: fadeOut 400ms;
+}
+
+.animate-books.ng-move, .animate-books.ng-leave {
+	-webkit-animation: fadeOut 400ms;
+	-moz-animation: fadeOut 400ms;
+	-o-animation: fadeOut 400ms;
+	animation: fadeOut 400ms;
+}
+
+.animate-books.ng-move, .animate-books.ng-enter {
+	-webkit-animation: fadeIn 400ms;
+	-moz-animation: fadeIn 400ms;
+	-o-animation: fadeIn 400ms;
+	animation: fadeIn 400ms;
+}
+
+.animate-books.ng-leave.ng-leave-active, .animate-books.ng-move,
+	.animate-books.ng-enter {
+	visibility: hidden;
+}
+
+.animate-books.ng-leave, .animate-books.ng-move.ng-move-active,
+	.animate-books.ng-enter.ng-enter-active {
+	visibility: visible;
+}
+
+/* chapters */
+.animate-chapters.ng-move, .animate-chapters.ng-leave {
+	-webkit-animation: fadeOutDown 400ms;
+	-moz-animation: fadeOutDown 400ms;
+	-o-animation: fadeOutDown 400ms;
+	animation: fadeOutDown 400ms;
+}
+
+.animate-chapters.ng-move, .animate-chapters.ng-enter {
+	-webkit-animation: fadeInUp 400ms;
+	-moz-animation: fadeInUp 400ms;
+	-o-animation: fadeInUp 400ms;
+	animation: fadeInUp 400ms;
+}
+
+.animate-chapters.ng-leave.ng-leave-active, .animate-chapters.ng-move,
+	.animate-books.ng-enter {
+	visibility: hidden;
+}
+
+.animate-chapters.ng-leave, .animate-chapters.ng-move.ng-move-active,
+	.animate-chapters.ng-enter.ng-enter-active {
+	visibility: visible;
+}
+
+/* slide */
+slide.animate-enter, slide.animate-leave {
+	-webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	-o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+	transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+
+slide.animate-enter {
+	left: 100%;
+}
+
+slide.animate-enter.animate-enter-active {
+	left: 0;
+}
+
+slide.animate-leave {
+	left: 0;
+}
+
+slide.animate-leave.animate-leave-active {
+	left: -100%;
 }
