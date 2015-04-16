@@ -1,100 +1,37 @@
 <div id="layout" class="pure-g">
   <div class="sidebar pure-u-1 pure-u-md-1-4">
     <div class="header">
-      <!--             <h1 class="brand-title">A Sample Blog</h1> -->
-      <!--             <h2 class="brand-tagline">Creating a blog layout using Pure</h2> -->
-
-      <!--             <nav class="nav"> -->
-      <!--               <ul class="nav-list"> -->
-      <!--                 <li class="nav-item"> -->
-      <!--                   <a class="pure-button" href="http://purecss.io">Pure</a> -->
-      <!--                 </li> -->
-      <!--                 <li class="nav-item"> -->
-      <!--                   <a class="pure-button" href="http://yuilibrary.com">YUI Library</a> -->
-      <!--                 </li> -->
-      <!--               </ul> -->
-      <!--             </nav> -->
-
       <div>
-
-        <br />
-        <input type="search" ng-model="bibleBookFilter" class="text-info" />
         <div id="bibleBooks">
-          <button class="pure-button bBook-button animate-chapters" ng-repeat="bBook in bibleBooks | filter: bibleBookFilter"
-            ng-click="filterBibleBooks(bBook)">{{bBook}}</button>
+          <button class="pure-button bBook-button slide" ng-repeat="bBook in bibleBooks | filter: {_id: tokenField}"
+            ng-click="filterBibleBooks(bBook)">{{bBook.name}}</button>
         </div>
+        <hr />
         <div id="chapters">
-          <button class="pure-button ch-button animate-chapters" ng-repeat="ch in chapters">{{ch}}</button>
+          <button class="pure-button ch-button animate-chapters" ng-repeat="ch in chapters" ng-click="showChapter(ch)">{{ch}}</button>
         </div>
       </div>
     </div>
   </div>
 
   <div class="content pure-u-1 pure-u-md-3-4">
-    <div ng-if="bool" class="pulse">Fade me in out</div>
-    <button ng-click="bool=true">Fade In!</button>
-    <button ng-click="bool=false">Fade Out!</button>
-
-    <input type="text" class="form-control tokenfield" />
+    <input type="text" class="form-control tokenfield" ng-model="tokenField" />
     <div>
       <!-- A wrapper for all the blog posts -->
       <div class="posts">
-        <h1 class="content-subhead">Pinned Post</h1>
+        <h1 class="content-subhead">result for: {{searchCriteria}}</h1>
 
         <!-- A single blog post -->
         <section class="post">
-          <header class="post-header">
-            <h2 class="post-title">Introducing Pure</h2>
-
-            <p class="post-meta">
-              By
-              <a href="#" class="post-author">Tilo Mitra</a>
-              under
-              <a class="post-category post-category-design" href="#">CSS</a>
-              <a class="post-category post-category-pure" href="#">Pure</a>
-            </p>
-          </header>
-
-          <div class="post-description">
-            <p>
-              Yesterday at CSSConf, we launched Pure � a new CSS library. Phew! Here are the
-              <a href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>
-              . Although it looks pretty minimalist, we�ve been working on Pure for several months. After many iterations, we have released
-              Pure as a set of small, responsive, CSS modules that you can use in every web project.
-            </p>
-          </div>
+          <div class="post-description" ng-bind-html="content.body"></div>
         </section>
       </div>
 
-
-
       <div class="footer">
         <div class="pure-menu pure-menu-horizontal">
-          <ul>
-            <li class="pure-menu-item">
-              <a href="http://purecss.io/" class="pure-menu-link">About</a>
-            </li>
-            <li class="pure-menu-item">
-              <a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a>
-            </li>
-            <li class="pure-menu-item">
-              <a href="http://github.com/yahoo/pure/" class="pure-menu-link">GitHub</a>
-            </li>
-          </ul>
+          <a href="http://github.com/yahoo/pure/" class="pure-menu-link">from JW.org</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-    $(function() {
-	$('.tokenfield').tokenfield({
-	    autocomplete : {
-		source : [ 'red', 'blue', 'green', 'yellow', 'violet', 'brown', 'purple', 'black', 'white' ],
-		delay : 100
-	    },
-	    showAutocompleteOnFocus : true
-	})
-    });
-</script>
