@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook) {
+angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh) {
 	$scope.awesomeThings = [];
 
 	$http.get('/api/mains').success(function(awesomeThings) {
 		$scope.awesomeThings = awesomeThings;
 	});
 
-	$http.get('/api/bible_books/').success(function(bibleBooks) {
+	$http.get('/api/bible_book_codes/').success(function(bibleBooks) {
 		$scope.bibleBooks = bibleBooks;
 		
 		$('.tokenfield').tokenfield({
@@ -50,9 +50,8 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 		});
 		console.log(JSON.stringify(selectedBook));
 		$scope.searchCriteria = selectedBook[0].name + ' ' + chapter;
-		var response = BibleBook.get({id: $scope.tokenField, chapter: chapter}, function() {
-			console.log(response);
-			$scope.content.body = response.data;
+		var response = BibleBookCh.get({id: $scope.tokenField, chapter: chapter}, function(response) {
+			$scope.content.body = response.content;
 		});
 	}
 	

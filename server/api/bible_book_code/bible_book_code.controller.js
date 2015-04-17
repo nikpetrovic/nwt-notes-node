@@ -1,7 +1,8 @@
 'use strict';
 
 var _ = require('lodash');
-var BibleBook = require('./bible_book.model');
+var BibleBook = require('./bible_book_code.model');
+var swig = require('swig');
 
 // Get list of bible_books
 exports.index = function(req, res) {
@@ -13,7 +14,19 @@ exports.index = function(req, res) {
 
 // Get bible book chapter
 exports.chapter = function(req, res) {
-	return res.json({ data: "<p>some text here</p>"});
+//	return res.json({ data: "<p>some text here</p>"});
+	
+	var viewFilePath = 'test_ch.html';
+//	return res.render(viewFilePath, function (err) {
+//		return res.json(viewFilePath);
+//	});
+	
+	var file = swig.renderFile('server/views/' + viewFilePath);
+//	res.setEncoding('utf-8');
+	console.log(file);
+	return res.json({data: file});
+//	console.log(app.get('views'));
+//	return res.json({ data: "<p>some text here</p>"});
 }
 
 // Get a single bible_book

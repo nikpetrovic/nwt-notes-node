@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./bible_book.controller');
+var controller = require('./bible_book_code.controller');
 
 var router = express.Router();
 
