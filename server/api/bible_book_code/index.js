@@ -6,7 +6,6 @@ var controller = require('./bible_book_code.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
-router.get('/:id/:chapter', controller.chapter);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

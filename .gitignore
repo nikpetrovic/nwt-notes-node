@@ -7,3 +7,4 @@ dist
 /server/config/local.env.js
 .tern-project
 .project
+.DS_Store

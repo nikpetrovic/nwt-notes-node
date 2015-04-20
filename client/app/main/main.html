@@ -1,95 +1,103 @@
-<div id="layout" class="pure-g">
-  <div class="sidebar pure-u-1 pure-u-md-1-4">
-    <div class="header">
-      <div>
-        <div id="bibleBooks">
-          <button class="pure-button bBook-button slide" ng-repeat="bBook in bibleBooks | filter: {_id: tokenField}"
-            ng-click="filterBibleBooks(bBook)">{{bBook.name}}</button>
-        </div>
-        <hr />
-        <div id="chapters">
-          <button class="pure-button ch-button animate-chapters" ng-repeat="ch in chapters" ng-click="showChapter(ch)">{{ch}}</button>
-        </div>
-      </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div id="navbar-items" class="collapse navbar-collapse" collapse="isCollapsed">
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="#">
+          <i class="fa fa-bars fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-book"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </li>
+    </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="#">
+          <i class="fa fa-bars fw"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-book"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid main-content">
+  <div class="col-md-3 left-sidebar">
+    <div class="btn-group input-group btn-group-justified">
+      <a class="btn btn-tora">Ge</a>
+      <a class="btn btn-tora">Ex</a>
+      <a class="btn btn-tora">Le</a>
+      <a class="btn btn-tora">Nu</a>
+      <a class="btn btn-tora">De</a>
+      <a class="btn btn-ihist">Jos</a>
+    </div>
+    <div class="btn-group input-group btn-group-justified">
+      <a class="btn btn-ihist">Jdg</a>
+      <a class="btn btn-ihist">Ru</a>
+      <a class="btn btn-ihist">1Sa</a>
+      <a class="btn btn-ihist">2Sa</a>
+      <a class="btn btn-ihist">1Ki</a>
+      <a class="btn btn-ihist">2Ki</a>
+    </div>
+    <div class="btn-group input-group btn-group-justified">
+      <a class="btn btn-ihist">1Ch</a>
+      <a class="btn btn-ihist">2Ch</a>
+      <a class="btn btn-ihist">Ezr</a>
+      <a class="btn btn-ihist">Ne</a>
+      <a class="btn btn-ihist">Ne</a>
+      <a class="btn btn-ihist">Es</a>
+    </div>
+    <div class="btn-group input-group btn-group-justified">
+      <a class="btn btn-psalms">Job</a>
+      <a class="btn btn-psalms">Ps</a>
+      <a class="btn btn-psalms">Pr</a>
+      <a class="btn btn-psalms">Ec</a>
+      <a class="btn btn-psalms">Song</a>
+      <a class="btn btn-prophets">Isa</a>
+    </div>
+    <div class="btn-group input-group btn-group-justified">
+      <a class="btn btn-prophets">Je</a>
+      <a class="btn btn-prophets">La</a>
+      <a class="btn btn-prophets">Eze</a>
+      <a class="btn btn-small-prophets">Ho</a>
+      <a class="btn btn-small-prophets">Joe</a>
+      <a class="btn btn-small-prophets">Am</a>
+    </div>
+    <div class="btn-group input-group btn-group-justified">
+      <a class="btn btn-small-prophets">Ob</a>
+      <a class="btn btn-small-prophets">Jon</a>
+      <a class="btn btn-small-prophets">Mi</a>
+      <a class="btn btn-small-prophets">Na</a>
+      <a class="btn btn-small-prophets">Hab</a>
+      <a class="btn btn-small-prophets">Zep</a>
     </div>
   </div>
 
-  <div class="content pure-u-1 pure-u-md-3-4">
-
-    <div class="col-md-9">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <input type="text" class="form-control tokenfield" ng-model="tokenField" />
-          <button type="button" class="navbar-toggle" data-toggle="sidebar" data-target=".sidebar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-      </nav>
-
-      <!--     <input type="text" class="form-control tokenfield" ng-model="tokenField" /> -->
-      <div>
-        <!-- A wrapper for all the blog posts -->
-        <div class="posts">
-          <h1 class="content-subhead">result for: {{searchCriteria}}</h1>
-
-          <!-- A single blog post -->
-          <section class="post">
-            <div class="post-description" ng-bind-html="content.body"></div>
-          </section>
-        </div>
-
-        <div class="footer">
-          <div class="pure-menu pure-menu-horizontal">
-            <a href="http://github.com/yahoo/pure/" class="pure-menu-link">from JW.org</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="col-md-9">
+    <p>here goes some text</p>
   </div>
-</div>
-
-<div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-right sidebar-animate sidebar-md-show">
-  <!-- content -->
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-  <p>some content here</p>
-
 </div>

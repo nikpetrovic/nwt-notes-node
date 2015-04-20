@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh) {
-	$scope.awesomeThings = [];
+	$scope.isCollapsed = true;
 
 	$http.get('/api/mains').success(function(awesomeThings) {
 		$scope.awesomeThings = awesomeThings;
@@ -10,13 +10,13 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 	$http.get('/api/bible_book_codes/').success(function(bibleBooks) {
 		$scope.bibleBooks = bibleBooks;
 		
-		$('.tokenfield').tokenfield({
-			autocomplete : {
-				source : getTokenfieldSource(bibleBooks),
-				delay : 50
-			},
-			showAutocompleteOnFocus : true
-		})
+//		$('.tokenfield').tokenfield({
+//			autocomplete : {
+//				source : getTokenfieldSource(bibleBooks),
+//				delay : 50
+//			},
+//			showAutocompleteOnFocus : true
+//		})
 	});
 	
 	function getTokenfieldSource(bibleBooks) {
@@ -31,12 +31,12 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 		console.log('fired filterBibleBooks: ' + bBook.name + ', tokenfield: ' + $scope.tokenField);
 		if (bBook._id === $scope.tokenField && $scope.tokenField) {
 			$scope.chapters = [];
-			$('.tokenfield').tokenfield('setTokens', {});
+//			$('.tokenfield').tokenfield('setTokens', {});
 			$scope.tokenField = '';
 		} else {
 			var chs = getChaptersArray(bBook.ch_no);
 			$scope.chapters = chs;
-			$('.tokenfield').tokenfield('setTokens', [{ value: bBook._id, label: bBook.name }]);
+//			$('.tokenfield').tokenfield('setTokens', [{ value: bBook._id, label: bBook.name }]);
 		}
 	}
 	

@@ -35,6 +35,67 @@
 	margin: 1px;
 }
 
+.main-content {
+	margin-top: 51px;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+div.ng-scope {
+	height: 100%;
+}
+
+.container-fluid {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.left-sidebar {
+	height: 100%;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
+	border-width: 1px;
+	border-right-style: solid;
+}
+
+.btn {
+	padding: 6px 2px;
+}
+
+.btn-tora {
+	background-color: #2f6bad;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
+.btn-ihist {
+	background-color: #1c7f04;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
+.btn-psalms {
+	background-color: #288b9e;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
+.btn-prophets {
+	background-color: #37bcad;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
+.btn-small-prophets {
+	background-color: #2ee065;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
 .bBook-button {
 	font-size: 85%;
 	width: 49%;
