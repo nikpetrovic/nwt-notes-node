@@ -40,6 +40,13 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 		}
 	}
 	
+	$scope.toggleSidebar = function() {
+		
+	}
+	
+	$scope.someValue = true;
+	$scope.animate = true;
+	
 	$scope.showChapter = function(chapter) {
 		console.log($scope.tokenField + ': ' + chapter);
 		$scope.content = {};

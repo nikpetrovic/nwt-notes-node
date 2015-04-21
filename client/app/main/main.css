@@ -36,7 +36,7 @@
 }
 
 .main-content {
-	margin-top: 51px;
+	padding-top: 51px;
 }
 
 html, body {
@@ -55,45 +55,85 @@ div.ng-scope {
 }
 
 .left-sidebar {
-	height: 100%;
+	min-height: 100%;
 	background-color: #f8f8f8;
 	border-color: #e7e7e7;
 	border-width: 1px;
 	border-right-style: solid;
+	border-bottom-style: solid;
 }
 
-.btn {
+.right-sidebar {
+	min-height: 100%;
+	background-color: #f8f8f8;
+	border-color: #e7e7e7;
+	border-width: 1px;
+	border-left-style: solid;
+	border-bottom-style: solid;
+}
+
+.btn-bb {
 	padding: 6px 2px;
 }
 
 .btn-tora {
 	background-color: #2f6bad;
-    border-color: #f8f8f8;
-    color: #fff;
+	border-color: #f8f8f8;
+	color: #fff;
 }
 
 .btn-ihist {
 	background-color: #1c7f04;
-    border-color: #f8f8f8;
-    color: #fff;
+	border-color: #f8f8f8;
+	color: #fff;
 }
 
 .btn-psalms {
 	background-color: #288b9e;
-    border-color: #f8f8f8;
-    color: #fff;
+	border-color: #f8f8f8;
+	color: #fff;
 }
 
 .btn-prophets {
 	background-color: #37bcad;
-    border-color: #f8f8f8;
-    color: #fff;
+	border-color: #f8f8f8;
+	color: #fff;
 }
 
 .btn-small-prophets {
 	background-color: #2ee065;
-    border-color: #f8f8f8;
-    color: #fff;
+	border-color: #f8f8f8;
+	color: #fff;
+}
+
+.btn-gospels {
+	background-color: #963082;
+	border-color: #f8f8f8;
+	color: #fff;
+}
+
+.btn-acts {
+	background-color: #a08e52;
+	border-color: #f8f8f8;
+	color: #fff;
+}
+
+.btn-letters {
+	background-color: #d14ebd;
+	border-color: #f8f8f8;
+	color: #fff;
+}
+
+.btn-finalbooks {
+	background-color: #c0bd30;
+	border-color: #f8f8f8;
+	color: #fff;
+}
+
+.btn-revelation {
+	background-color: #e80000;
+	border-color: #f8f8f8;
+	color: #fff;
 }
 
 .bBook-button {
@@ -105,92 +145,4 @@ div.ng-scope {
 .header {
 	margin: 0.6em 0.4em;
 	text-align: left;
-}
-
-.fade.ng-enter {
-	-webkit-animation: fadeIn 400ms;
-	-moz-animation: fadeIn 400ms;
-	-o-animation: fadeIn 400ms;
-	animation: fadeIn 400ms;
-}
-
-.fade.ng-leave {
-	-webkit-animation: fadeOut 400ms;
-	-moz-animation: fadeOut 400ms;
-	-o-animation: fadeOut 400ms;
-	animation: fadeOut 400ms;
-}
-
-.animate-books.ng-move, .animate-books.ng-leave {
-	-webkit-animation: fadeOut 400ms;
-	-moz-animation: fadeOut 400ms;
-	-o-animation: fadeOut 400ms;
-	animation: fadeOut 400ms;
-}
-
-.animate-books.ng-move, .animate-books.ng-enter {
-	-webkit-animation: fadeIn 400ms;
-	-moz-animation: fadeIn 400ms;
-	-o-animation: fadeIn 400ms;
-	animation: fadeIn 400ms;
-}
-
-.animate-books.ng-leave.ng-leave-active, .animate-books.ng-move,
-	.animate-books.ng-enter {
-	visibility: hidden;
-}
-
-.animate-books.ng-leave, .animate-books.ng-move.ng-move-active,
-	.animate-books.ng-enter.ng-enter-active {
-	visibility: visible;
-}
-
-/* chapters */
-.animate-chapters.ng-move, .animate-chapters.ng-leave {
-	-webkit-animation: fadeOutDown 400ms;
-	-moz-animation: fadeOutDown 400ms;
-	-o-animation: fadeOutDown 400ms;
-	animation: fadeOutDown 400ms;
-}
-
-.animate-chapters.ng-move, .animate-chapters.ng-enter {
-	-webkit-animation: fadeInUp 400ms;
-	-moz-animation: fadeInUp 400ms;
-	-o-animation: fadeInUp 400ms;
-	animation: fadeInUp 400ms;
-}
-
-.animate-chapters.ng-leave.ng-leave-active, .animate-chapters.ng-move,
-	.animate-books.ng-enter {
-	visibility: hidden;
-}
-
-.animate-chapters.ng-leave, .animate-chapters.ng-move.ng-move-active,
-	.animate-chapters.ng-enter.ng-enter-active {
-	visibility: visible;
-}
-
-/* slide */
-slide.animate-enter, slide.animate-leave {
-	-webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-	-moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-	-ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-	-o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-	transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-}
-
-slide.animate-enter {
-	left: 100%;
-}
-
-slide.animate-enter.animate-enter-active {
-	left: 0;
-}
-
-slide.animate-leave {
-	left: 0;
-}
-
-slide.animate-leave.animate-leave-active {
-	left: -100%;
 }
