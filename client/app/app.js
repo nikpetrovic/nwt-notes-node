@@ -5,8 +5,8 @@ angular.module('nwtNotesApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap',
-  'ngAnimate'
+  'ngAnimate',
+  'mgcrea.ngStrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

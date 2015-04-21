@@ -1,0 +1,16 @@
+<div class="popover">
+  <div class="arrow"></div>
+  <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+  <div class="popover-content">
+    <button class="btn btn-default ch-button">1</button>
+    <button class="btn btn-default ch-button">2</button>
+    <button class="btn btn-default ch-button">3</button>
+    <button class="btn btn-default ch-button">4</button>
+    <button class="btn btn-default ch-button">5</button>
+    <button class="btn btn-default ch-button">6</button>
+    <button class="btn btn-default ch-button">7</button>
+    
+    <button class="btn btn-default bBook-button" ng-repeat="bBook in bibleBooks" ng-click="filterBibleBooks(bBook)">{{bBook.name}}</button>
+    <button class="btn btn-default ch-button" ng-repeat="ch in chapters" ng-click="showChapter(ch)">{{ch}}</button>
+  </div>
+</div>

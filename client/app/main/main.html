@@ -46,15 +46,21 @@
   </div>
 </nav>
 
-<div class="container-fluid">
+<div id="main" class="container-fluid">
   <div class="col-sm-12 col-md-3 left-sidebar main-content">
     <div class="btn-group input-group btn-group-justified">
-      <a class="btn btn-bb btn-tora">Ge</a>
-      <a class="btn btn-bb btn-tora">Ex</a>
-      <a class="btn btn-bb btn-tora">Le</a>
-      <a class="btn btn-bb btn-tora">Nu</a>
-      <a class="btn btn-bb btn-tora">De</a>
-      <a class="btn btn-bb btn-ihist">Jos</a>
+      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}" data-placement="bottom-left"
+        data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-container="div.left-sidebar" bs-popover>Ge</a>
+      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}" data-placement="bottom-left"
+        data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-container="body" bs-popover>Ex</a>
+      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}" data-placement="bottom"
+        data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-container="body" bs-popover>Le</a>
+      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}" data-placement="bottom"
+        data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-container="body" bs-popover>Nu</a>
+      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}" data-placement="bottom-right"
+        data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-container="body" bs-popover>De</a>
+      <a class="btn btn-bb btn-ihist" title="{{apopover.title}}" data-content="{{apopover.content}}" data-placement="bottom-right"
+        data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-container="body" bs-popover>Jos</a>
     </div>
     <div class="btn-group input-group btn-group-justified">
       <a class="btn btn-bb btn-ihist">Jdg</a>
@@ -140,10 +146,85 @@
 
   <div class="main-content" ng-class="animate ? 'col-md-6' : 'col-md-9'">
     <button class="btn btn-primary" ng-click="someValue = !someValue">click me</button>
-    <p>here goes some texthere goes some texthere goes some texthere goes some texthere goes some texthere goes some
-      texthere goes some texthere goes some texthere goes some text</p>
+    <p>here goes some texthere goes some texthere goes some texthere goes some texthere goes some texthere goes some texthere goes some
+      texthere goes some texthere goes some text</p>
     <button class="btn btn-danger" ng-click="animate = !animate">switch</button>
+
+    <button type="button" class="btn btn-lg btn-primary" bs-aside="aside" data-placement="left" data-animation="am-slide-left"
+      data-template="app/main/aside.tpl.html" data-content="body">
+      Click to toggle aside
+      <br>
+      <small>(using an object)</small>
+    </button>
+
+    <button data-container="body" bs-aside="aside" data-animation="am-slide-left" data-placement="left"
+      data-template="app/main/aside.tpl.html" class="btn btn-lg btn-danger" type="button">
+      Custom aside
+      <br>
+      <small>(using data-template)</small>
+    </button>
+
+    <!-- You can also use data-attrs to assign scope variables -->
+    <button type="button" class="btn btn-lg btn-warning" data-placement="top" title="{{apopover.title}}" data-content="{{apopover.content}}"
+      data-trigger="focus" bs-popover>
+      Click to toggle popover
+      <br>
+      <small>(using data-attrs)</small>
+    </button>
+
+    <button type="button" class="btn btn-lg btn-warning" title="{{apopover.title}}" data-content="{{apopover.content}}"
+      data-placement="bottom" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x" data-auto-close="1" bs-popover>
+      Custom Popover
+      <br>
+      <small>(using data-template)</small>
+    </button>
+
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+    <p>text</p>
+
   </div>
+
   <div class="main-content right-sidebar col-md-3 animated-class" ng-if="animate">
     <p>here goes some text</p>
 

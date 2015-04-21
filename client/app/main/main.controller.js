@@ -1,73 +1,72 @@
 'use strict';
 
 angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh) {
-	$scope.isCollapsed = true;
+    $scope.isCollapsed = true;
 
-	$http.get('/api/mains').success(function(awesomeThings) {
-		$scope.awesomeThings = awesomeThings;
+    $http.get('/api/mains').success(function(awesomeThings) {
+	$scope.awesomeThings = awesomeThings;
+    });
+
+    $http.get('/api/bible_book_codes/').success(function(bibleBooks) {
+	$scope.bibleBooks = bibleBooks;
+    });
+
+    function getTokenfieldSource(bibleBooks) {
+	var source = new Array(bibleBooks.length);
+	for (var i = 0; i < bibleBooks.length; i++) {
+	    source[i] = {
+		label : bibleBooks[i].name,
+		value : bibleBooks[i]._id
+	    };
+	}
+	return source;
+    }
+
+    $scope.asideTitle = "Aside Title";
+    $scope.asideContent = "SOME CONTENT";
+    $scope.apopover = {
+	title : "Popover Title",
+	content : "POPOVER CONTENT"
+    };
+
+    $scope.filterBibleBooks = function(bBook) {
+	console.log('fired filterBibleBooks: ' + bBook.name + ', tokenfield: ' + $scope.tokenField);
+	if (bBook._id === $scope.tokenField && $scope.tokenField) {
+	    $scope.chapters = [];
+	    $scope.tokenField = '';
+	} else {
+	    var chs = getChaptersArray(bBook.ch_no);
+	    $scope.chapters = chs;
+	}
+    }
+
+    $scope.someValue = true;
+    $scope.animate = true;
+
+    $scope.showChapter = function(chapter) {
+	console.log($scope.tokenField + ': ' + chapter);
+	$scope.content = {};
+	var selectedBook = $scope.bibleBooks.filter(function(element) {
+	    if (element._id == $scope.tokenField) {
+		return element;
+	    }
 	});
-
-	$http.get('/api/bible_book_codes/').success(function(bibleBooks) {
-		$scope.bibleBooks = bibleBooks;
-		
-//		$('.tokenfield').tokenfield({
-//			autocomplete : {
-//				source : getTokenfieldSource(bibleBooks),
-//				delay : 50
-//			},
-//			showAutocompleteOnFocus : true
-//		})
+	console.log(JSON.stringify(selectedBook));
+	$scope.searchCriteria = selectedBook[0].name + ' ' + chapter;
+	var response = BibleBookCh.get({
+	    id : $scope.tokenField,
+	    chapter : chapter
+	}, function(response) {
+	    $scope.content.body = response.content;
 	});
-	
-	function getTokenfieldSource(bibleBooks) {
-		var source = new Array(bibleBooks.length);
-		for (var i = 0; i < bibleBooks.length; i++) {
-			source[i] = { label : bibleBooks[i].name, value : bibleBooks[i]._id };
-		}
-		return source;
+    }
+
+    function getChaptersArray(noOfElemetns) {
+	var array = new Array(noOfElemetns);
+	for (var i = 0; i < noOfElemetns; i++) {
+	    array[i] = i + 1;
 	}
 
-	$scope.filterBibleBooks = function(bBook) {
-		console.log('fired filterBibleBooks: ' + bBook.name + ', tokenfield: ' + $scope.tokenField);
-		if (bBook._id === $scope.tokenField && $scope.tokenField) {
-			$scope.chapters = [];
-//			$('.tokenfield').tokenfield('setTokens', {});
-			$scope.tokenField = '';
-		} else {
-			var chs = getChaptersArray(bBook.ch_no);
-			$scope.chapters = chs;
-//			$('.tokenfield').tokenfield('setTokens', [{ value: bBook._id, label: bBook.name }]);
-		}
-	}
-	
-	$scope.toggleSidebar = function() {
-		
-	}
-	
-	$scope.someValue = true;
-	$scope.animate = true;
-	
-	$scope.showChapter = function(chapter) {
-		console.log($scope.tokenField + ': ' + chapter);
-		$scope.content = {};
-		var selectedBook = $scope.bibleBooks.filter(function(element) {
-			if (element._id == $scope.tokenField) {
-				return element;
-			}
-		});
-		console.log(JSON.stringify(selectedBook));
-		$scope.searchCriteria = selectedBook[0].name + ' ' + chapter;
-		var response = BibleBookCh.get({id: $scope.tokenField, chapter: chapter}, function(response) {
-			$scope.content.body = response.content;
-		});
-	}
-	
-	function getChaptersArray(noOfElemetns) {
-		var array = new Array(noOfElemetns);
-		for (var i = 0; i<noOfElemetns; i++) {
-			array[i] = i+1;
-		}
-		
-		return array;
-	}
+	return array;
+    }
 });
