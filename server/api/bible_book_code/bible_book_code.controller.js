@@ -1,11 +1,11 @@
 'use strict';
 
 var _ = require('lodash');
-var BibleBook = require('./bible_book_code.model');
+var BibleBookCode = require('./bible_book_code.model');
 
 // Get list of bible_books
 exports.index = function(req, res) {
-  BibleBook.find(function (err, bible_books) {
+  BibleBookCode.find(function (err, bible_books) {
     if(err) { return handleError(res, err); }
     return res.json(200, bible_books);
   });
@@ -13,7 +13,7 @@ exports.index = function(req, res) {
 
 // Get a single bible_book
 exports.show = function(req, res) {
-  BibleBook.findById(req.params.id, function (err, bible_book) {
+  BibleBookCode.findById(req.params.id, function (err, bible_book) {
     if(err) { return handleError(res, err); }
     if(!bible_book) { return res.send(404); }
     return res.json(bible_book);
@@ -22,7 +22,7 @@ exports.show = function(req, res) {
 
 // Creates a new bible_book in the DB.
 exports.create = function(req, res) {
-  BibleBook.create(req.body, function(err, bible_book) {
+  BibleBookCode.create(req.body, function(err, bible_book) {
     if(err) { return handleError(res, err); }
     return res.json(201, bible_book);
   });
@@ -31,7 +31,7 @@ exports.create = function(req, res) {
 // Updates an existing bible_book in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
-  BibleBook.findById(req.params.id, function (err, bible_book) {
+  BibleBookCode.findById(req.params.id, function (err, bible_book) {
     if (err) { return handleError(res, err); }
     if(!bible_book) { return res.send(404); }
     var updated = _.merge(bible_book, req.body);
@@ -44,7 +44,7 @@ exports.update = function(req, res) {
 
 // Deletes a bible_book from the DB.
 exports.destroy = function(req, res) {
-  BibleBook.findById(req.params.id, function (err, bible_book) {
+  BibleBookCode.findById(req.params.id, function (err, bible_book) {
     if(err) { return handleError(res, err); }
     if(!bible_book) { return res.send(404); }
     bible_book.remove(function(err) {
