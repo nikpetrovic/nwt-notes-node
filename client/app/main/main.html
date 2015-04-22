@@ -1,45 +1,17 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" bs-collapse data-start-collapsed="true">
   <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+    <button type="button" class="navbar-toggle collapsed" bs-collapse-toggle>
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
   </div>
-  <div id="navbar-items" class="collapse navbar-collapse" collapse="isCollapsed">
-    <ul class="nav navbar-nav">
-      <li>
-        <a href="#" ng-click="animate = !animate">
-          <i class="fa fa-bars fw"></i>
-        </a>
-      </li>
+  <div id="navbar-items" bs-collapse-target>
+    <ul class="nav navbar-nav navbar-right navbar-pad">
       <li>
         <a href="#">
-          <i class="fa fa-book"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-pencil"></i>
-        </a>
-      </li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="#">
-          <i class="fa fa-bars fw"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-book"></i>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="fa fa-pencil"></i>
+          <i class="fa fa-lg fa-pencil"></i>
         </a>
       </li>
     </ul>
@@ -49,24 +21,24 @@
 <div id="main" class="container-fluid">
   <div class="col-sm-12 col-md-3 left-sidebar main-content">
     <div class="btn-group input-group btn-group-justified">
-      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}"
-        data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x"
-        data-container="div.left-sidebar" bs-popover ng-click="filterBibleBooks(bibleBooks[0])" data-auto-close="true">Ge</a>
-      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}"
-        data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x"
-        data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[1])" data-auto-close="true">Ex</a>
-      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}"
-        data-placement="bottom" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x"
-        data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[2])" data-auto-close="true">Le</a>
-      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}"
-        data-placement="bottom" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x"
-        data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[3])" data-auto-close="true">Nu</a>
-      <a class="btn btn-bb btn-tora" title="{{apopover.title}}" data-content="{{apopover.content}}"
-        data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x"
-        data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[4])" data-auto-close="true">De</a>
-      <a class="btn btn-bb btn-ihist" title="{{apopover.title}}" data-content="{{apopover.content}}"
-        data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html" data-animation="am-flip-x"
-        data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[5])" data-auto-close="true">Jos</a>
+      <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html"
+        data-animation="am-flip-x" data-container="div.left-sidebar" bs-popover
+        ng-click="filterBibleBooks(bibleBooks[0])" data-auto-close="true">Ge</a>
+      <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html"
+        data-animation="am-flip-x" data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[1])"
+        data-auto-close="true">Ex</a>
+      <a class="btn btn-bb btn-tora" data-placement="bottom" data-template="app/main/popover.demo.tpl.html"
+        data-animation="am-flip-x" data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[2])"
+        data-auto-close="true">Le</a>
+      <a class="btn btn-bb btn-tora" data-placement="bottom" data-template="app/main/popover.demo.tpl.html"
+        data-animation="am-flip-x" data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[3])"
+        data-auto-close="true">Nu</a>
+      <a class="btn btn-bb btn-tora" data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html"
+        data-animation="am-flip-x" data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[4])"
+        data-auto-close="true">De</a>
+      <a class="btn btn-bb btn-ihist" data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html"
+        data-animation="am-flip-x" data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[5])"
+        data-auto-close="true">Jos</a>
     </div>
     <div class="btn-group input-group btn-group-justified">
       <a class="btn btn-bb btn-ihist">Jdg</a>
@@ -151,7 +123,8 @@
   </div>
 
   <div class="main-content" ng-class="animate ? 'col-md-6' : 'col-md-9'">
-    <div ng-class="{fadeIn: content.body, fadeOut: !content.body}" ng-show="content.body">
+    <!--     <div ng-class="{fadeIn: content.body, fadeOut: !content.body}" ng-show="content.body"> -->
+    <div ng-class="showContentClass" ng-show="content.body">
       <br />
       <h4>{{content.selectedBook.name}}&nbsp;{{content.selectedCh}}</h4>
       <hr />

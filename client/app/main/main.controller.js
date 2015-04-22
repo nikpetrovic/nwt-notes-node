@@ -2,6 +2,7 @@
 
 angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh) {
 	$scope.isCollapsed = true;
+	$scope.activeNavbarItem = -1;
 
 	$http.get('/api/mains').success(function(awesomeThings) {
 		$scope.awesomeThings = awesomeThings;
@@ -45,6 +46,7 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 	$scope.animate = true;
 
 	$scope.showChapter = function(chapter) {
+		$scope.showContentClass = '';
 		console.log($scope.tokenField + ': ' + chapter);
 		$scope.content = {};
 		console.log(JSON.stringify($scope.selectedBook));
@@ -56,6 +58,7 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 			$scope.content.body = response.content;
 			$scope.content.selectedBook = $scope.selectedBook;
 			$scope.content.selectedCh = chapter;
+			$scope.showContentClass = 'animated fadeIn';
 		});
 	}
 

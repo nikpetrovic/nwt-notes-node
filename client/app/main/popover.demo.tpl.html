@@ -1,6 +1,6 @@
 <div class="popover">
   <div class="arrow"></div>
-  <h3 class="popover-title" ng-bind="title" ng-show="title"></h3>
+  <h3 class="popover-title" ng-bind="selectedBook.name"></h3>
   <div class="popover-content">
     <button class="btn btn-default ch-button" ng-repeat="ch in chapters" ng-click="showChapter(ch)">{{ch}}</button>
   </div>

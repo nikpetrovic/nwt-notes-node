@@ -99,6 +99,11 @@ div.ng-scope {
 	border-bottom-style: solid;
 }
 
+/* NAVBAR */
+.navbar-pad {
+	padding: 0 20px;
+}
+/* NAVBAR END */
 .btn-bb {
 	padding: 6px 2px;
 }
