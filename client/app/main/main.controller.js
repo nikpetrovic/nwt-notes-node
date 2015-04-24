@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh) {
+angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh, $popover) {
 	$scope.isCollapsed = true;
 	$scope.activeNavbarItem = -1;
 
@@ -23,12 +23,7 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 		return source;
 	}
 
-	$scope.asideTitle = "Aside Title";
-	$scope.asideContent = "SOME CONTENT";
-	$scope.apopover = {
-		title : "Popover Title",
-		content : "POPOVER CONTENT"
-	};
+	$scope.asideTitle = "Choose the Bible Book and the chapter";
 
 	$scope.filterBibleBooks = function(bBook) {
 		$scope.selectedBook = bBook;
@@ -45,11 +40,9 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 	$scope.someValue = true;
 	$scope.animate = true;
 
-	$scope.showChapter = function(chapter) {
-		$scope.showContentClass = '';
+	$scope.showChapter = function(chapter, element) {
 		console.log($scope.tokenField + ': ' + chapter);
 		$scope.content = {};
-		console.log(JSON.stringify($scope.selectedBook));
 		$scope.searchCriteria = $scope.selectedBook.name + ' ' + chapter;
 		var response = BibleBookCh.get({
 			id : $scope.selectedBook._id,
@@ -58,7 +51,6 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 			$scope.content.body = response.content;
 			$scope.content.selectedBook = $scope.selectedBook;
 			$scope.content.selectedCh = chapter;
-			$scope.showContentClass = 'animated fadeIn';
 		});
 	}
 
@@ -69,5 +61,20 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 		}
 
 		return array;
+	}
+})
+
+.directive('rmPopovers', function($document, $rootScope, $timeout, $popover) {
+	return {
+		restrict : 'EA',
+		link : function(scope, element, attrs) {
+			var $element = $(element);
+			$element.click(function() {
+				$('.popover, .aside').each(function() {
+					var $this = $(this);
+					$this.scope().$hide();
+				});
+			});
+		}
 	}
 });

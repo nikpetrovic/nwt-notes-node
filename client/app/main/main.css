@@ -104,6 +104,22 @@ div.ng-scope {
 	padding: 0 20px;
 }
 /* NAVBAR END */
+
+.boxme.ng-hide-add {
+    -webkit-animation: fadeOut .4s;
+    animation: fadeOut .4s;
+}
+.boxme.ng-hide-add-active {
+    opacity: 1;
+}
+.boxme.ng-hide-remove {
+    -webkit-animation: fadeIn .4s;
+    animation: fadeIn .4s;
+}
+.boxme.ng-hide-remove-active {
+    opacity: 0;
+}
+
 .btn-bb {
 	padding: 6px 2px;
 }
