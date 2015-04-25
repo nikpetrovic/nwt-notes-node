@@ -1,3 +1,8 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.4em;
+}
+
 .thing-form {
 	margin: 20px 0;
 }
@@ -18,8 +23,10 @@
 	padding: 30px 15px;
 	color: #F5F5F5;
 	text-align: center;
-	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 	background: #4393B9;
+	border-color: #a33f3e;
+	background-color: #b94846;
 }
 
 .footer {
@@ -30,7 +37,6 @@
 }
 
 .ch-button {
-	font-size: 85%;
 	width: 3em;
 	margin: 1px;
 }
@@ -70,7 +76,7 @@ div.ng-scope {
 	height: inherit;
 }
 
-@media ( max-width : 991px) {
+/* @media ( max-width : 991px) {
 	.main-content {
 		padding-top: 0px;
 	}
@@ -78,8 +84,7 @@ div.ng-scope {
 		position: inherit;
 		padding-top: 51px;
 	}
-}
-
+} */
 @media ( min-width : 767px) {
 	.main-content {
 		padding-top: 51px;
@@ -104,20 +109,22 @@ div.ng-scope {
 	padding: 0 20px;
 }
 /* NAVBAR END */
-
 .boxme.ng-hide-add {
-    -webkit-animation: fadeOut .4s;
-    animation: fadeOut .4s;
+	-webkit-animation: fadeOut .4s;
+	animation: fadeOut .4s;
 }
+
 .boxme.ng-hide-add-active {
-    opacity: 1;
+	opacity: 1;
 }
+
 .boxme.ng-hide-remove {
-    -webkit-animation: fadeIn .4s;
-    animation: fadeIn .4s;
+	-webkit-animation: fadeIn .4s;
+	animation: fadeIn .4s;
 }
+
 .boxme.ng-hide-remove-active {
-    opacity: 0;
+	opacity: 0;
 }
 
 .btn-bb {
@@ -193,4 +200,13 @@ div.ng-scope {
 .header {
 	margin: 0.6em 0.4em;
 	text-align: left;
+}
+
+@media ( max-width : 991px) {
+	.navbar-collapse.collapse {
+		display: none !important;
+	}
+	.navbar-header {
+		float: none;
+	}
 }

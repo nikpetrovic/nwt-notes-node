@@ -39,6 +39,10 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 
 	$scope.someValue = true;
 	$scope.animate = true;
+	$scope.aside = {
+		title: "Aside Title",
+		content: "Aside Content"
+	};
 
 	$scope.showChapter = function(chapter, element) {
 		console.log($scope.tokenField + ': ' + chapter);
