@@ -34,7 +34,7 @@
 <div>
   <div class="container bs-docs-container">
     <div class="row">
-      <div class="col-md-4 hidden-sm hidden-xs main-content">
+      <div class="col-md-4 col-lg-3 hidden-sm hidden-xs main-content">
         <div class="btn-group input-group btn-group-justified">
           <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html"
             data-animation="am-flip-x" data-container="body" bs-popover ng-click="filterBibleBooks(bibleBooks[0])" data-auto-close="true">Ge</a>
@@ -132,7 +132,7 @@
 
       </div>
 
-      <div class="main-content" ng-class="showRightSidebar ? 'col-md-5' : 'col-md-8'">
+      <div class="main-content" ng-class="showRightSidebar ? 'col-md-5 col-lg-6' : 'col-md-8 col-lg-9'">
         <div class="boxme" ng-show="content.body">
           <br />
           <h4>{{content.selectedBook.name}}&nbsp;{{content.selectedCh}}</h4>
@@ -141,7 +141,7 @@
         </div>
       </div>
 
-      <div id="left-sidebar" class="main-content right-sidebar col-md-3 col-xs-12 boxme" ng-show="showRightSidebar">
+      <div id="left-sidebar" class="main-content right-sidebar col-xs-12 col-md-3 boxme" ng-show="showRightSidebar">
         <p>here go some notes</p>
 
         <button class="btn btn-danger" ng-click="animate = !animate">switch</button>
