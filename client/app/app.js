@@ -14,11 +14,18 @@ angular.module('nwtNotesApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRout
 			return {
 				// Add authorization token to headers
 				request : function(config) {
+					console.debug($location.path());
 					config.headers = config.headers || {};
 					if ($cookieStore.get('token')) {
 						config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
 					}
 					return config;
+				},
+				
+				response : function(response) {
+					console.log(response.config.url);
+					
+					return response;
 				},
 
 				// Intercept 401s and redirect you to login

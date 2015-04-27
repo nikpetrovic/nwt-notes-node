@@ -15,5 +15,9 @@ angular.module('nwtNotesApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      }).when('/logout', {
+      	template: " ",
+        controller: 'LogoutCtrl',
+        authenticate: true
       });
   });

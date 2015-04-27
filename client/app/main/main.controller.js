@@ -27,7 +27,6 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 
 	$scope.filterBibleBooks = function(bBook) {
 		$scope.selectedBook = bBook;
-		console.log('fired filterBibleBooks: ' + bBook.name + ', tokenfield: ' + $scope.tokenField);
 		if (bBook._id === $scope.tokenField && $scope.tokenField) {
 			$scope.chapters = [];
 			$scope.tokenField = '';
@@ -45,7 +44,7 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 	};
 
 	$scope.showChapter = function(chapter, element) {
-		console.log($scope.tokenField + ': ' + chapter);
+		console.log('selected chapter: ' + chapter);
 		$scope.content = {};
 		$scope.searchCriteria = $scope.selectedBook.name + ' ' + chapter;
 		var response = BibleBookCh.get({
