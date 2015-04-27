@@ -14,17 +14,15 @@ angular.module('nwtNotesApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRout
 			return {
 				// Add authorization token to headers
 				request : function(config) {
-					console.debug($location.path());
 					config.headers = config.headers || {};
 					if ($cookieStore.get('token')) {
 						config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
 					}
 					return config;
 				},
-				
+
 				response : function(response) {
-					console.log(response.config.url);
-					
+
 					return response;
 				},
 
@@ -43,12 +41,18 @@ angular.module('nwtNotesApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRout
 		})
 
 		.run(function($rootScope, $location, Auth) {
-			// Redirect to login if route requires auth and you're not logged in
-			$rootScope.$on('$routeChangeStart', function(event, next) {
-				Auth.isLoggedInAsync(function(loggedIn) {
-					if (next.authenticate && !loggedIn) {
-						$location.path('/login');
-					}
-				});
+			$rootScope.$on("$locationChangeStart", function(event, nextUrl, currentUrl) {
+				console.log("nextUrl: " + nextUrl + ', currentUrl: ' + currentUrl);
+				if (Auth.isLoggedIn() || currentUrl.indexOf("/login") > -1) {
+					Auth.isLoggedInAsync(function(loggedIn) {
+						if (!loggedIn) {
+							$location.path('/login');
+						} else {
+							$location.path('/');
+						}
+					});
+				} else {
+					$location.path('/login');
+				}
 			});
 		});
