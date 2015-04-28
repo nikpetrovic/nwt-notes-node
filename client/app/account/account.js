@@ -1,23 +1,18 @@
 'use strict';
 
-angular.module('nwtNotesApp')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/login', {
-        templateUrl: 'app/account/login/login.html',
-        controller: 'LoginCtrl'
-      })
-      .when('/signup', {
-        templateUrl: 'app/account/signup/signup.html',
-        controller: 'SignupCtrl'
-      })
-      .when('/settings', {
-        templateUrl: 'app/account/settings/settings.html',
-        controller: 'SettingsCtrl',
-        authenticate: true
-      }).when('/logout', {
-      	template: " ",
-        controller: 'LogoutCtrl',
-        authenticate: true
-      });
-  });
+angular.module('nwtNotesApp').config(function($routeProvider) {
+	$routeProvider.when('/login', {
+		templateUrl : 'app/account/login/login.html',
+		controller : 'LoginCtrl'
+	}).when('/signup', {
+		templateUrl : 'app/account/signup/signup.html',
+		controller : 'SignupCtrl'
+	}).when('/settings', {
+		templateUrl : 'app/account/settings/settings.html',
+		controller : 'SettingsCtrl',
+		authenticate : true
+	}).when('/logout', {
+		templateUrl : 'app/account/login/login.html',
+		controller : 'LogoutCtrl'
+	});
+});

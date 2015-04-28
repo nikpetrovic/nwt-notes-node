@@ -1,5 +1,6 @@
 'user strict'
-angular.module('nwtNotesApp').controller('LogoutCtrl', function($location, Auth) {
+angular.module('nwtNotesApp').controller('LogoutCtrl', function($scope, $location, Auth) {
+//	alert('Logout');
 	Auth.logout();
-	$location.path('/');
+//	$location.path('/');
 });

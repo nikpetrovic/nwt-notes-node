@@ -4,10 +4,6 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 	$scope.isCollapsed = true;
 	$scope.activeNavbarItem = -1;
 
-	$http.get('/api/mains').success(function(awesomeThings) {
-		$scope.awesomeThings = awesomeThings;
-	});
-
 	$http.get('/api/bible_book_codes/').success(function(bibleBooks) {
 		$scope.bibleBooks = bibleBooks;
 	});
