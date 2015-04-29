@@ -1,8 +1,4 @@
 angular.module('nwtNotesApp').directive('bbMenu', function() {
-	$http.get('/api/bible_book_codes/').success(function(bibleBooks) {
-		$scope.bibleBooks = bibleBooks;
-	});
-
 	function getChaptersArray(noOfElemetns) {
 		var array = new Array(noOfElemetns);
 		for (var i = 0; i < noOfElemetns; i++) {
@@ -15,29 +11,76 @@ angular.module('nwtNotesApp').directive('bbMenu', function() {
 	return {
 		restrict : 'EA',
 		scope : {
-			showChapter : function(chapter, element) {
+			bibleBooks : '=bibleBooks',
+			onChSelected : '&'
+		},
+		controller : [ '$scope', '$http', 'BibleBookCh', function($scope, $http, BibleBookCh) {
+			$scope.noOfBooksInRow = 6;
+			$scope.bookInRowIndex = getChaptersArray($scope.noOfBooksInRow);
+
+			$scope.showChapter = function(chapter, element) {
 				console.log('selected chapter: ' + chapter);
-				content = {};
-				searchCriteria = selectedBook.name + ' ' + chapter;
+				$scope.selectedCh = chapter;
+				$scope.content = {};
+				$scope.searchCriteria = $scope.selectedBook.name + ' ' + chapter;
 				var response = BibleBookCh.get({
-					id : selectedBook._id,
+					id : $scope.selectedBook._id,
 					chapter : chapter
 				}, function(response) {
-					content.body = response.content;
-					content.selectedBook = selectedBook;
-					content.selectedCh = chapter;
+					$scope.content.body = response.content;
+					$scope.content.selectedBook = $scope.selectedBook;
+					$scope.content.selectedCh = chapter;
 				});
-			},
-			filterBibleBooks : function(bBook) {
-				selectedBook = bBook;
+			}
+
+			$scope.filterBibleBooks = function(bBook) {
+				$scope.selectedBook = bBook;
 				var chs = getChaptersArray(bBook.ch_no);
-				chapters = chs;
-			},
-			content : {},
-			searchCriteria : {},
-			selectedBook : {},
-			chapters : {},
-			bibleBooks : $scope.bibleBooks
+				$scope.chapters = chs;
+			}
+
+			$scope.getBibleBookGroupName = function(bibleBook) {
+				if (bibleBook.order_no < 6) {
+					return 'tora';
+				} else if (bibleBook.order_no < 18) {
+					return 'ihist';
+				} else if (bibleBook.order_no < 23) {
+					return 'psalms';
+				} else if (bibleBook.order_no < 28) {
+					return 'prophets';
+				} else if (bibleBook.order_no < 40) {
+					return 'small-prophets';
+				} else if (bibleBook.order_no < 44) {
+					return 'gospels';
+				} else if (bibleBook.order_no < 45) {
+					return 'acts';
+				} else if (bibleBook.order_no < 58) {
+					return 'letters';
+				} else if (bibleBook.order_no < 66) {
+					return 'finalbooks';
+				} else if (bibleBook.order_no < 67) {
+					return 'revelation';
+				}
+			}
+
+			$scope.getPopoverHorizontalPosition = function(bookInRowPosition) {
+				if (bookInRowPosition < ($scope.noOfBooksInRow / 3)) {
+					return '-left';
+				} else if (bookInRowPosition < (2 * $scope.noOfBooksInRow / 3)) {
+					return '';
+				} else {
+					return '-right';
+				}
+			}
+
+		} ],
+
+		templateUrl : 'app/directives/bible_book_menu_directive.html',
+
+		link : function(scope, element, attrs) {
+			scope.$watch('content.body', function(newValue, oldValue) {
+				scope.onChSelected(newValue);
+			});
 		}
 	}
 });
