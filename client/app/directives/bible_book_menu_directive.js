@@ -40,6 +40,10 @@ angular.module('nwtNotesApp').directive('bbMenu', function() {
 			}
 
 			$scope.getBibleBookGroupName = function(bibleBook) {
+				if (!bibleBook) {
+					return;
+				}
+
 				if (bibleBook.order_no < 6) {
 					return 'tora';
 				} else if (bibleBook.order_no < 18) {
@@ -72,7 +76,6 @@ angular.module('nwtNotesApp').directive('bbMenu', function() {
 					return '-right';
 				}
 			}
-
 		} ],
 
 		templateUrl : 'app/directives/bible_book_menu_directive.html',
