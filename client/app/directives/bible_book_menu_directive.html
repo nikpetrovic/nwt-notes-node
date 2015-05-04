@@ -1,9 +1,8 @@
-<h2>From the directive :)</h2>
 <div class="btn-group input-group btn-group-justified" ng-repeat="bb in bibleBooks" ng-if="$index % noOfBooksInRow == 0">
   <a ng-repeat="a in bookInRowIndex"
     class="btn btn-bb btn-{{getBibleBookGroupName(bibleBooks[$parent.$parent.$index + $index])}}"
     data-placement="bottom{{getPopoverHorizontalPosition($index)}}" data-template="app/main/popover.demo.tpl.html"
-    data-animation="am-flip-x" data-container="body" bs-popover
+    data-animation="am-fade" data-container="{{container}}" bs-popover
     ng-click="filterBibleBooks(bibleBooks[$parent.$parent.$index + $index])" data-auto-close="true">{{bibleBooks[$parent.$parent.$index
     + $index].short_name}}</a>
 </div>

@@ -9,17 +9,21 @@ angular.module('nwtNotesApp').directive('bbMenu', function() {
 	}
 
 	return {
-		restrict : 'EA',
+		restrict : 'A',
+		transclude : true,
 		scope : {
-			bibleBooks : '=bibleBooks',
-			onChSelected : '&'
+			bibleBooks : '=',
+			onChSelected : '&',
+			content : '=',
+			noOfBooksInRow : '=?',
+			container : '@?'
 		},
 		controller : [ '$scope', '$http', 'BibleBookCh', function($scope, $http, BibleBookCh) {
-			$scope.noOfBooksInRow = 6;
+			$scope.container = $scope.container || 'body';
+			$scope.noOfBooksInRow = $scope.noOfBooksInRow || 6;
 			$scope.bookInRowIndex = getChaptersArray($scope.noOfBooksInRow);
 
 			$scope.showChapter = function(chapter, element) {
-				console.log('selected chapter: ' + chapter);
 				$scope.selectedCh = chapter;
 				$scope.content = {};
 				$scope.searchCriteria = $scope.selectedBook.name + ' ' + chapter;
@@ -78,12 +82,6 @@ angular.module('nwtNotesApp').directive('bbMenu', function() {
 			}
 		} ],
 
-		templateUrl : 'app/directives/bible_book_menu_directive.html',
-
-		link : function(scope, element, attrs) {
-			scope.$watch('content.body', function(newValue, oldValue) {
-				scope.onChSelected(newValue);
-			});
-		}
+		templateUrl : 'app/directives/bible_book_menu_directive.html'
 	}
 });

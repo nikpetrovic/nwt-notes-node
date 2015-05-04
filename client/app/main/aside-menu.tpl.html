@@ -6,34 +6,36 @@
         <h4 class="aside-title" ng-bind="asideTitle"></h4>
       </div>
       <div class="aside-body">
-        <div class="btn-group input-group btn-group-justified">
-          <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html"
-            data-animation="am-flip-x" data-container="div.aside-dialog" bs-popover
-            ng-click="filterBibleBooks(bibleBooks[0])" data-auto-close="true">Ge</a>
-          <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html"
-            data-animation="am-flip-x" data-container="div.aside-dialog" bs-popover
-            ng-click="filterBibleBooks(bibleBooks[1])" data-auto-close="true">Ex</a>
-          <a class="btn btn-bb btn-tora" data-placement="bottom" data-template="app/main/popover.demo.tpl.html"
-            data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[2])"
-            data-auto-close="true">Le</a>
-          <a class="btn btn-bb btn-tora" data-placement="bottom" data-template="app/main/popover.demo.tpl.html"
-            data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[3])"
-            data-auto-close="true">Nu</a>
-          <a class="btn btn-bb btn-tora" data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html"
-            data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[4])"
-            data-auto-close="true">De</a>
-          <a class="btn btn-bb btn-ihist" data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html"
-            data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[5])"
-            data-auto-close="true">Jos</a>
-        </div>
-        <div class="btn-group input-group btn-group-justified">
-          <a class="btn btn-bb btn-ihist">Jdg</a>
-          <a class="btn btn-bb btn-ihist">Ru</a>
-          <a class="btn btn-bb btn-ihist">1Sa</a>
-          <a class="btn btn-bb btn-ihist">2Sa</a>
-          <a class="btn btn-bb btn-ihist">1Ki</a>
-          <a class="btn btn-bb btn-ihist">2Ki</a>
-        </div>
+<!--         <div class="btn-group input-group btn-group-justified"> -->
+<!--           <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html" -->
+<!--             data-animation="am-flip-x" data-container="div.aside-dialog" bs-popover -->
+<!--             ng-click="filterBibleBooks(bibleBooks[0])" data-auto-close="true">Ge</a> -->
+<!--           <a class="btn btn-bb btn-tora" data-placement="bottom-left" data-template="app/main/popover.demo.tpl.html" -->
+<!--             data-animation="am-flip-x" data-container="div.aside-dialog" bs-popover -->
+<!--             ng-click="filterBibleBooks(bibleBooks[1])" data-auto-close="true">Ex</a> -->
+<!--           <a class="btn btn-bb btn-tora" data-placement="bottom" data-template="app/main/popover.demo.tpl.html" -->
+<!--             data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[2])" -->
+<!--             data-auto-close="true">Le</a> -->
+<!--           <a class="btn btn-bb btn-tora" data-placement="bottom" data-template="app/main/popover.demo.tpl.html" -->
+<!--             data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[3])" -->
+<!--             data-auto-close="true">Nu</a> -->
+<!--           <a class="btn btn-bb btn-tora" data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html" -->
+<!--             data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[4])" -->
+<!--             data-auto-close="true">De</a> -->
+<!--           <a class="btn btn-bb btn-ihist" data-placement="bottom-right" data-template="app/main/popover.demo.tpl.html" -->
+<!--             data-animation="am-flip-x"  data-container="div.aside-dialog"  bs-popover ng-click="filterBibleBooks(bibleBooks[5])" -->
+<!--             data-auto-close="true">Jos</a> -->
+<!--         </div> -->
+<!--         <div class="btn-group input-group btn-group-justified"> -->
+<!--           <a class="btn btn-bb btn-ihist">Jdg</a> -->
+<!--           <a class="btn btn-bb btn-ihist">Ru</a> -->
+<!--           <a class="btn btn-bb btn-ihist">1Sa</a> -->
+<!--           <a class="btn btn-bb btn-ihist">2Sa</a> -->
+<!--           <a class="btn btn-bb btn-ihist">1Ki</a> -->
+<!--           <a class="btn btn-bb btn-ihist">2Ki</a> -->
+<!--         </div> -->
+
+        <div bb-menu bible-books="bibleBooks" content="$parent.$parent.content" container="div.aside-dialog"></div>
 
       </div>
       <div class="aside-footer">
