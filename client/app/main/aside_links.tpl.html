@@ -1,0 +1,25 @@
+<div id="asideDiv" class="aside" tabindex="-1" role="dialog">
+  <div class="aside-dialog">
+    <div class="aside-content">
+      <div class="aside-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li>
+            <a href="#" ng-click="$parent.$parent.showRightSidebar = !$parent.$parent.showRightSidebar; $hide()">
+              <i class="fa fa-pencil"></i>
+              &#xA0;Notes
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="/logout">
+              <i class="fa fa-power-off"></i>
+              &#xA0;Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="aside-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
