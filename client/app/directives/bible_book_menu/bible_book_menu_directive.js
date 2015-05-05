@@ -82,6 +82,6 @@ angular.module('nwtNotesApp').directive('bbMenu', function() {
 			}
 		} ],
 
-		templateUrl : 'app/directives/bible_book_menu_directive.html'
+		templateUrl : 'app/directives/bible_book_menu/bible_book_menu_directive.html'
 	}
 });
