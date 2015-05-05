@@ -1,4 +1,4 @@
-angular.module('nwtNotesApp').directive('bbMenu', function() {
+angular.module('nwtNotesApp').directive('nwtnBbMenu', function() {
 	function getChaptersArray(noOfElemetns) {
 		var array = new Array(noOfElemetns);
 		for (var i = 0; i < noOfElemetns; i++) {

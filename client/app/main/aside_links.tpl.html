@@ -1,8 +1,12 @@
-<div id="asideDiv" class="aside" tabindex="-1" role="dialog">
+<div id="asideDiv" class="aside" tabindex="-1" role="dialog" style="width: 100%;">
   <div class="aside-dialog">
     <div class="aside-content">
+      <div class="aside-header" ng-show="asideTitle">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="aside-title">Menu</h4>
+      </div>
       <div class="aside-body">
-        <ul class="nav nav-pills nav-stacked">
+        <ul class="nav nav-stacked">
           <li>
             <a href="#" ng-click="$parent.$parent.showRightSidebar = !$parent.$parent.showRightSidebar; $hide()">
               <i class="fa fa-pencil"></i>

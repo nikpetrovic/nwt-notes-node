@@ -3,10 +3,10 @@
     <div class="aside-content">
       <div class="aside-header" ng-show="asideTitle">
         <button type="button" class="close" ng-click="$hide()">&times;</button>
-        <h4 class="aside-title" ng-bind="asideTitle"></h4>
+        <h4 class="aside-title">Select Book & Chapter</h4>
       </div>
       <div class="aside-body">
-        <div bb-menu bible-books="bibleBooks" content="$parent.$parent.content" container="div.aside-dialog"></div>
+        <div nwtn-bb-menu bible-books="bibleBooks" content="$parent.$parent.content" container="div.aside-dialog"></div>
       </div>
       <div class="aside-footer">
         <button type="button" class="btn btn-default" ng-click="$hide()">CLOSE</button>

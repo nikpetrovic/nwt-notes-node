@@ -48,7 +48,7 @@
   <div class="container bs-docs-container">
     <div class="row">
       <div class="col-md-4 col-lg-3 hidden-sm hidden-xs main-content">
-        <div bb-menu bible-books="bibleBooks" content="content"></div>
+        <div nwtn-bb-menu bible-books="bibleBooks" content="content"></div>
       </div>
 
       <div class="main-content" ng-class="showRightSidebar ? 'col-md-5 col-lg-6' : 'col-md-8 col-lg-9'">
@@ -61,10 +61,17 @@
       </div>
 
       <div id="left-sidebar" class="main-content right-sidebar col-xs-12 col-md-3 boxme" ng-show="showRightSidebar">
+        <ul>
+          <li>
+            <h3>Note 1</h3>
+            <p>note 1</p>
+          </li>
+          <li>
+            <h3>Note 2</h3>
+            <p>note 2</p>
+          </li>
+        </ul>
         <p>here go some notes</p>
-
-        <button class="btn btn-danger" ng-click="animate = !animate">switch</button>
-        <p class="animated" ng-class="{fadeIn: animate, fadeOut: !animate}">My first animated text</p>
       </div>
     </div>
   </div>
