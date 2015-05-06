@@ -12,7 +12,7 @@ angular.module('nwtNotesApp').config(function($routeProvider) {
 		controller : 'SettingsCtrl',
 		authenticate : true
 	}).when('/logout', {
-		template : "",
+		template : '',
 		controller : 'LogoutCtrl'
 	});
 });

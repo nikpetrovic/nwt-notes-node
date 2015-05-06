@@ -3,6 +3,7 @@
 angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, BibleBook, BibleBookCh, $popover) {
 	$scope.isCollapsed = true;
 	$scope.activeNavbarItem = -1;
+	$scope.showNotes = true;
 
 	$http.get('/api/bible_book_codes/').success(function(bibleBooks) {
 		$scope.bibleBooks = bibleBooks;

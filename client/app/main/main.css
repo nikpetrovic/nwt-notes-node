@@ -36,13 +36,24 @@ body {
 	border-top: 1px solid #E5E5E5;
 }
 
+.basic-layout {
+	margin: 0 8px;
+}
+
 .ch-button {
 	width: 3em;
 	margin: 1px;
 }
 
-.main-content {
+.main-side {
 	padding-top: 51px;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+}
+
+.main-central {
+	padding: 51px 15px 0 15px;
 }
 
 html, body {
@@ -76,16 +87,6 @@ div.ng-scope {
 	height: inherit;
 }
 
-@media ( min-width : 767px) {
-	.main-content {
-		padding-top: 51px;
-	}
-	.left-sidebar {
-		position: inherit;
-		padding-top: 51px;
-	}
-}
-
 .right-sidebar {
 	min-height: 100%;
 	background-color: #f8f8f8;
@@ -100,24 +101,6 @@ div.ng-scope {
 	padding: 0 20px;
 }
 /* NAVBAR END */
-.boxme.ng-hide-add {
-	-webkit-animation: fadeOut .4s;
-	animation: fadeOut .4s;
-}
-
-.boxme.ng-hide-add-active {
-	opacity: 1;
-}
-
-.boxme.ng-hide-remove {
-	-webkit-animation: fadeIn .4s;
-	animation: fadeIn .4s;
-}
-
-.boxme.ng-hide-remove-active {
-	opacity: 0;
-}
-
 .btn-bb {
 	padding: 6px 2px;
 	text-transform: uppercase;
@@ -194,11 +177,44 @@ div.ng-scope {
 	text-align: left;
 }
 
+/* ANIMATIONS BEGIN */
+.boxme.ng-hide-add {
+	-webkit-animation: fadeOut .4s;
+	animation: fadeOut .4s;
+}
+
+.boxme.ng-hide-add-active {
+	opacity: 1;
+}
+
+.boxme.ng-hide-remove {
+	-webkit-animation: fadeIn .4s;
+	animation: fadeIn .4s;
+}
+
+.boxme.ng-hide-remove-active {
+	opacity: 0;
+}
+
+/* ANIMATIONS END */
+@media ( min-width : 767px) {
+	.main-content {
+		padding-top: 51px;
+	}
+	.left-sidebar {
+		position: inherit;
+		padding-top: 51px;
+	}
+}
+
 @media ( max-width : 991px) {
 	.navbar-collapse.collapse {
 		display: none !important;
 	}
 	.navbar-header {
 		float: none;
+	}
+	.main-content {
+		padding: 0 15px;
 	}
 }

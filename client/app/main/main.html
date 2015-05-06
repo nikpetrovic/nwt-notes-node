@@ -1,6 +1,6 @@
 <div>
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-    <div class="container">
+    <div class="container-fluid basic-layout">
       <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-template="app/main/aside_bible_book_menu.tpl.html"
           data-animation="am-fade-and-slide-left" data-placement="left" title="Menu" data-container="body" bs-aside="">
@@ -27,7 +27,7 @@
             <a href="/directive1"> &#xA0;Directive </a>
           </li>
           <li>
-            <a href="#" ng-click="showRightSidebar = !showRightSidebar">
+            <a href="#" ng-click="showNotes = !showNotes">
               <i class="fa fa-pencil"></i>
               &#xA0;Notes
             </a>
@@ -45,34 +45,22 @@
   </header>
 </div>
 <div>
-  <div class="container bs-docs-container">
-    <div class="row">
-      <div class="col-md-4 col-lg-3 hidden-sm hidden-xs main-content">
-        <div nwtn-bb-menu bible-books="bibleBooks" content="content"></div>
-      </div>
+  <div class="container-fluid bs-docs-container">
+    <div class="col-md-4 col-lg-3 hidden-sm hidden-xs main-side">
+      <div nwtn-bb-menu bible-books="bibleBooks" content="content"></div>
+    </div>
 
-      <div class="main-content" ng-class="showRightSidebar ? 'col-md-5 col-lg-6' : 'col-md-8 col-lg-9'">
-        <div class="boxme" ng-show="content.body">
-          <br />
-          <h4>{{content.selectedBook.name}}&nbsp;{{content.selectedCh}}</h4>
-          <hr />
-          <p ng-bind-html="content.body"></p>
-        </div>
+    <div class="main-central" ng-class="showNotes ? 'col-md-5 col-lg-6' : 'col-md-8 col-lg-9'">
+      <div ng-show="content.body">
+        <br />
+        <h4>{{content.selectedBook.name}}&nbsp;{{content.selectedCh}}</h4>
+        <hr />
+        <p ng-bind-html="content.body"></p>
       </div>
+    </div>
 
-      <div id="left-sidebar" class="main-content right-sidebar col-xs-12 col-md-3 boxme" ng-show="showRightSidebar">
-        <ul>
-          <li>
-            <h3>Note 1</h3>
-            <p>note 1</p>
-          </li>
-          <li>
-            <h3>Note 2</h3>
-            <p>note 2</p>
-          </li>
-        </ul>
-        <p>here go some notes</p>
-      </div>
+    <div id="left-sidebar" class="main-side right-sidebar col-xs-12 col-md-3 boxme" ng-show="showNotes">
+      <div nwtn-notes></div>
     </div>
   </div>
 </div>
