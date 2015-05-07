@@ -10,7 +10,6 @@ angular.module('nwtNotesApp').directive('nwtnBbMenu', function() {
 
 	return {
 		restrict : 'A',
-		transclude : true,
 		scope : {
 			bibleBooks : '=',
 			onChSelected : '&',

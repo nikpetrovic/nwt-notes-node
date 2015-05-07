@@ -5,11 +5,11 @@ angular
 		.directive(
 				'nwtnNotes',
 				function() {
-
 					return {
 						restrict : 'A',
 						templateUrl : 'app/directives/notes/notes.html',
-						controller : function($scope, $http) {
+						scope : {},
+						controller : ['$scope', '$http', function($scope, $http) {
 							$scope.panels = [
 									{
 										"title" : "Note #1",
@@ -25,6 +25,6 @@ angular
 									} ];
 
 							$scope.selectedPanels = [ 0, 1, 2, 3 ];
-						}
+						} ]
 					}
 				});
