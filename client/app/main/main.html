@@ -52,7 +52,7 @@
         <br />
         <h4>{{content.selectedBook.name}}&nbsp;{{content.selectedCh}}</h4>
         <hr />
-        <p ng-bind-html="content.body"></p>
+        <p ng-bind-html="content.body" ng-mouseup="markSelected()"></p>
       </div>
     </div>
 

@@ -36,8 +36,8 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 	$scope.someValue = true;
 	$scope.animate = true;
 	$scope.aside = {
-		title: "Aside Title",
-		content: "Aside Content"
+		title : "Aside Title",
+		content : "Aside Content"
 	};
 
 	$scope.showChapter = function(chapter, element) {
@@ -54,6 +54,10 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 		});
 	}
 
+	$scope.markSelected = function() {
+		console.debug(getSelectionHtml());
+	}
+
 	function getChaptersArray(noOfElemetns) {
 		var array = new Array(noOfElemetns);
 		for (var i = 0; i < noOfElemetns; i++) {
@@ -62,6 +66,37 @@ angular.module('nwtNotesApp').controller('MainCtrl', function($scope, $http, Bib
 
 		return array;
 	}
+
+	function getSelectionHtml() {
+		var html = "";
+		if (typeof window.getSelection != "undefined") {
+			var sel = window.getSelection();
+			if (sel.rangeCount) {
+				var container = document.createElement("div");
+				for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+					container.appendChild(sel.getRangeAt(i).cloneContents());
+				}
+				html = container.innerHTML;
+			}
+		} else if (typeof document.selection != "undefined") {
+			if (document.selection.type == "Text") {
+				html = document.selection.createRange().htmlText;
+			}
+		}
+
+		return html;
+	}
+
+	function getSelectionText() {
+		var text = "";
+		if (window.getSelection) {
+			text = window.getSelection().toString();
+		} else if (document.selection && document.selection.type != "Control") {
+			text = document.selection.createRange().text;
+		}
+		return text;
+	}
+
 })
 
 .directive('rmPopovers', function($document, $rootScope, $timeout, $popover) {
